@@ -1,0 +1,48 @@
+
+
+.cls-1 {
+  fill: #034b97;
+}
+
+.cls-2 {
+  fill: #981d3d;
+}
+
+.cls-3 {
+  fill: #e6e2e3;
+}
+
+.cls-4 {
+  fill: #6e7475;
+}
+
+.cls-5 {
+  fill: #fff;
+}
+
+.cls-6 {
+  fill: #af1d33
+}
+
+body {
+    background: #000;
+    font-family: 'Anton', sans-serif;
+}
+
+svg {
+    display: block;
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 10%;
+}
+
+.title {
+    color: white;
+    text-transform: uppercase;
+    margin-left: 5%;
+    font-size: 30px;
+}
+
+.title span {
+    color: #AF1D33;
+}
