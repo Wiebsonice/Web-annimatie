@@ -57,3 +57,26 @@ svg {
 .title span {
     color: #AF1D33;
 }
+
+a {
+    transform-origin: center;
+}
+
+a.sfish-ani:focus {
+  fill: pink;
+  stroke: red;
+  stroke-width: 1;
+    animation: fishaway 3s ease forwards;
+    transform-origin: center;
+}
+
+
+
+
+@-webkit-keyframes fishaway{
+	0% {transform:rotateY(60deg);}
+	25% {transform:rotateY(-60deg) translateX(-10px);}
+    50% {transform:rotateY(60deg) translateX(-30px);}
+	75% {transform:rotateY(-60deg) translateX(-50px);}
+    100% {opacity: 0; transform:scale(.2);}
+}
