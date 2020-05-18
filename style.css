@@ -25,8 +25,20 @@
 }
 
 body {
-    background: #000;
+    background-color: skyblue;
     font-family: 'Anton', sans-serif;
+    height: 300vh;
+}
+
+.sea {
+    background: black;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    transition: ease opacity .1s;
 }
 
 svg {
@@ -36,6 +48,7 @@ svg {
     margin-left: 5%;
     margin-top: 10%;
     /* display: none; */
+    position: fixed;
 }
 
 .cssart {
@@ -50,7 +63,7 @@ svg {
     text-transform: uppercase;
     margin-left: 5%;
     font-size: 30px;
-    position: absolute;
+    position: fixed;
     bottom: 10%;
 }
 
@@ -62,21 +75,65 @@ a {
     transform-origin: center;
 }
 
-a.sfish-ani:focus g{
+/* a.sfish-ani:focus g{
   fill: pink;
   stroke: red;
   stroke-width: 1;
     animation: fishaway 3s ease forwards;
-    transform-origin: center;
+    transform-origin: 50% 50%;
+    transform-box: fill-box;
+} */
+
+.hide {
+    transform-origin: 50% 50%;
+    transform-box: fill-box;
+    animation: fishaway  3s linear forwards;
 }
 
+/* .hide#s-fish1 {
+    animation: fishaway 0.5s 3.5s linear forwards;
+}
+
+.hide#s-fish2 {
+    animation: fishaway 0.7s 3.7s linear forwards;
+}
+
+.hide#s-fish3 {
+    animation: fishaway 0.2s 3.2s linear forwards;
+}
+
+.hide#s-fish4 {
+    animation: fishaway 3s linear forwards;
+
+} */
+
+.container {
+  width: 100%;
+}
+
+/* .eye {
+    transform-origin: 50% 50%;
+    transform-box: fill-box;
+    /* transform="translate(-128.98 -71.84)"
+} */
+
+.eye{
+  margin: auto;
+  height: 100px;
+/*   background:#ccc; */
+}
+.pupil{
+  position:relative;
+/*   transform:  rotate(390deg); */
+/*   transform-origin: 20px center; */
+}
 
 
 
 @-webkit-keyframes fishaway{
 	0% {transform:rotateY(60deg);}
-	25% {transform:rotateY(-60deg) translateX(10px);}
-    50% {transform:rotateY(60deg) translateX(30px);}
-	75% {transform:rotateY(-60deg) translateX(50px);}
-    100% {opacity: 0; transform:scale(.2);}
+	25% {transform:rotateY(-60deg) translateX(-30px);}
+    50% {transform:rotateY(60deg) translateX(-60px);}
+	75% {transform:rotateY(-60deg) translateX(-100px);}
+    100% {opacity: 0; transform: translateX(-130px);}
 }
