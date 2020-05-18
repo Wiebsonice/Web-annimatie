@@ -51,11 +51,8 @@ svg {
     position: fixed;
 }
 
-.cssart {
-    position: absolute;
-    width: 90%;
-    left: 5%;
-    height: 200px;
+#b-fish {
+    transform: translate(-164px, -100px);
 }
 
 .title {
@@ -71,18 +68,6 @@ svg {
     color: #AF1D33;
 }
 
-a {
-    transform-origin: center;
-}
-
-/* a.sfish-ani:focus g{
-  fill: pink;
-  stroke: red;
-  stroke-width: 1;
-    animation: fishaway 3s ease forwards;
-    transform-origin: 50% 50%;
-    transform-box: fill-box;
-} */
 
 .hide {
     transform-origin: 50% 50%;
@@ -90,42 +75,17 @@ a {
     animation: fishaway  3s linear forwards;
 }
 
-/* .hide#s-fish1 {
-    animation: fishaway 0.5s 3.5s linear forwards;
-}
-
-.hide#s-fish2 {
-    animation: fishaway 0.7s 3.7s linear forwards;
-}
-
-.hide#s-fish3 {
-    animation: fishaway 0.2s 3.2s linear forwards;
-}
-
-.hide#s-fish4 {
-    animation: fishaway 3s linear forwards;
-
-} */
-
 .container {
   width: 100%;
 }
-
-/* .eye {
-    transform-origin: 50% 50%;
-    transform-box: fill-box;
-    /* transform="translate(-128.98 -71.84)"
-} */
 
 .eye{
   margin: auto;
   height: 100px;
 /*   background:#ccc; */
 }
-.pupil{
+.pupill{
   position:relative;
-/*   transform:  rotate(390deg); */
-/*   transform-origin: 20px center; */
 }
 
 
