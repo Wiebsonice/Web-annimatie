@@ -1,5 +1,6 @@
 console.log("hey")
 var sFish = document.querySelectorAll('.s-fish');
+var body = document.querySelector(body)
 
 var seaBg = document.querySelector('.sea');
 
@@ -20,6 +21,11 @@ var body = document.querySelector('body')
 
 window.addEventListener('scroll', () => {
   seaBg.style.opacity = getScrollPercent();
+  if ((getScrollPercent() * 100) <= 10) {
+      body.classList.add("top")
+  } else {
+      body.classList.remove("top")
+  }
 })
 
 function getScrollPercent() {
@@ -46,39 +52,42 @@ document.addEventListener("mousemove", (e) => {
         pupil.style.transform = 'translate(' + x + 'px ,' + y + 'px)';
     }
 
-    console.log("y:", y, "x", x)
-    //
-	// pupil.style.transform = "translate(" + x + "," + y + ")" ;
-
-	// pupil.style.y= y;
-    // pupil.style.x= x;
-    // pupil.style.opacity = getScrollPercent();
+    // console.log("y:", y, "x", x)
 })
 
+var fishAmmount = 1;
 
-// let eyeBall = document.querySelector(".eyeball");
-// let pupil = document.querySelector(".pupil");
-// let eyeArea = eyeBall.getBoundingClientRect();
-// let pupilArea = pupil.getBoundingClientRect();
-// let R = eyeArea.width/2;
-// let r = pupilArea.width/2;
-// let centerX = eyeArea.left + R;
-// let centerY = eyeArea.top + R;
-//
-// console.log(eyeArea)
-// console.log(pupilArea)
-// console.log(R)
-// console.log(r)
-// console.log(centerX)
-// console.log(centerY)
-//
-// document.addEventListener("mousemove", (e)=>{
-//   let x = e.clientX - centerX,
-//       y = e.clientY - centerY,
-//       theta = Math.atan2(y,x),
-//       angle = theta*180/Math.PI + 360;
-//
-//
-//   pupil.style.transform = `translateX(${R - r +"px"}) rotate(${angle + "deg"})`;
-//   pupil.style.transformOrigin = `${r +"px"} center`;
-// });
+
+
+window.addEventListener("keydown", keyFunction);
+function keyFunction() {
+    if (event.keyCode == 83) {
+        console.log("s")
+        sFishSwim("s")
+    }
+
+    else if (event.keyCode == 77) {
+        console.log("m")
+        sFishSwim("m")
+    }
+    else if (event.keyCode == 66) {
+        console.log("b")
+        sFishSwim("b")
+    }
+}
+
+function sFishSwim(type) {
+    var randomnmbr = Math.random() * 100;
+
+    var div = document.createElement('div');
+    div.className = type + '-new-fish ' + type + '-new-fish' + fishAmmount;
+    div.style.top = randomnmbr + "%";
+    document.querySelector('.new-fish-outer').appendChild(div);
+    fishAmmount += 1;
+}
+
+
+var infoBtn = document.querySelector('.info');
+infoBtn.addEventListener("click", function() {
+    infoBtn.classList.toggle("expand")
+});
