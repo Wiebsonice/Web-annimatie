@@ -228,7 +228,7 @@ document.addEventListener("mousemove", (e) => {
 ```
 
 # Het resultaat
-![Sheltered Weaklings](https://github.com/Wiebsonice/Web-annimatie/blob/master/readme-assets/result.jpg?raw=true)
+![Sheltered Weaklings](https://github.com/Wiebsonice/Web-annimatie/blob/master/readme-assets/result.png?raw=true)
 Het resultat is een best leuk interactieve versie van het originele kunstwerk. Ik vond het een leuke opdracht waarbij ik helaas niet gelijk de link legde tussen visual interfase design en dit vak. maar het is wel tot een mooi resultaat gekomen.  
   
 [Bekijk het resultaat!](https://wiebsonice.github.io/Web-annimatie/)
