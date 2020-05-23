@@ -64,8 +64,17 @@ body {
     transition: ease opacity .1s;
 }
 
+.mobile-t {
+    height: 0;
+    overflow: hidden;
+}
+.desktop {
+    height: auto;
+    overflow: show;
+}
+
 .top svg {
-    top: 25%;
+    top: 10%;
 }
 
 svg {
@@ -162,7 +171,7 @@ svg {
     position: fixed;
     height: auto;
     width: 300px;
-    background: rgba(0, 0, 0, .5);
+    background: rgba(0, 0, 0, .75);
     right: -300px;
     top: 10px;
     transition: ease right .5s;
@@ -184,7 +193,7 @@ svg {
     left: -50px;
     height: 50px;
     width: 50px;
-    background: rgba(10,10,10,.5);
+    background: rgba(10,10,10,.75);
     font-size: 30px;
 }
 
@@ -290,7 +299,7 @@ svg {
 
 .top .new-fish-outer {
     height: 100%;
-    top: 22%;
+    top: 15%;
 }
 
 .s-fish {
@@ -604,5 +613,13 @@ svg {
 
     .mobile {
         display: block;
+    }
+    .mobile-t {
+        height: auto;
+        overflow: show;
+    }
+    .desktop {
+        height: 0;
+        overflow: hidden;
     }
 }
