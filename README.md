@@ -114,3 +114,121 @@ filter: invert(100%);
 overflow: hidden;
 ```
 
+## Step 3: Javascript technieken
+Om de meer geaffanceerdere animaties te kunnen maken is toch javascrip nodig. Ik heb javascript gebruikt om onderandere classen te toggelen on click, scroll events, keydown events, mouse move events enz.
+
+### 1: Click toggelers
+Als ik op een div click, doe dan dit. Het klinkt zo simpel maar het vereist toch altijd wel een beetje javascript. hieronder een voorbeeld van een foreach loop die een click op meerdere elementen toepast en een class toggle activeerd:
+```javascript
+var allSFish = document.querySelectorAll('.s-fish');
+
+allSFish.forEach(item => {
+  item.addEventListener('click', event => {
+    allSFish.forEach(fish => {
+      fish.classList.toggle("hide");
+    })
+  })
+})
+```
+Deze functie word gebruikt voor als de gebruiker klikt op 1 van de kleine visjes, om ze weg te laten zwemmen.
+
+### 2: Scroll event
+Omdat ik het kunstwerk wat dynamischer wilde houden maar wel de originele stijl wilde bewaren heb ik een scroll toegevoegd die aan de hand van de pagina scroll de originele zwarte achtergrond kleur laat infaden. ook verplaatst de svg iets naar beneden als de golven in beeld komen.
+
+```javascript
+window.addEventListener('scroll', () => {
+  // opacity word aangepast met de waarde die uit de functie terug komt
+  seaBg.style.opacity = getScrollPercent();
+  
+  // hieronder bepaal ik of de pagina aan de bovenkant is
+  // dan voegt hij de class top toe.
+  if ((getScrollPercent() * 100) <= 10) {
+      body.classList.add("top")
+  } else {
+      body.classList.remove("top")
+  }
+})
+
+// Deze functie komt van stackoverflow
+// hij berekent het scroll persentage van de pagina.
+function getScrollPercent() {
+    var h = document.documentElement,
+        b = document.body,
+        st = 'scrollTop',
+        sh = 'scrollHeight';
+    return (h[st]||b[st]) / ((h[sh]||b[sh]) - h.clientHeight) ;
+}
+```
+
+### 3: Keydown events
+Omdat er in de rubric ook voldaan moest worden aan een keydown event heb ik aan de hand van 1 van de volgende toetsen in te drukken: "s", "m" & "b", een animatie van een vis toegevoegd die op een rnadom hoogte door het beeld swemt. en aan de toets is het of een kleine, middel of grote vis. Omdat je op mobiel geen keydown hebt heb ik daar knoppen in het scherm geplaatst.
+```javascript
+window.addEventListener("keydown", keyFunction);
+function keyFunction() {
+// ifstatement voor de toetsen
+    if (event.keyCode == 83) {
+        sFishSwim("s")
+    }
+
+    else if (event.keyCode == 77) {
+        sFishSwim("m")
+    }
+    else if (event.keyCode == 66) {
+        sFishSwim("b")
+    }
+}
+
+// mobile fix for keydown
+var sFish = document.querySelector('.sFishBtn');
+var mFish = document.querySelector('.mFishBtn');
+var bFish = document.querySelector('.bFishBtn');
+
+sFish.addEventListener("click", function() {
+    sFishSwim("s")
+});
+mFish.addEventListener("click", function() {
+    sFishSwim("m")
+});
+bFish.addEventListener("click", function() {
+    sFishSwim("b")
+});
+
+// de functie voor het maken van een vis en deze laten swemmen door het beeld.
+function sFishSwim(type) {
+    var randomnmbr = Math.random() * 100;
+
+    var div = document.createElement('div');
+    div.className = type + '-new-fish ' + type + '-new-fish' + fishAmmount;
+    div.style.top = randomnmbr + "%";
+    document.querySelector('.new-fish-outer').appendChild(div);
+    fishAmmount += 1;
+}
+```
+
+### 4: Een mouse move event
+Het leek me leuk om het oog van de grote vis de muis van de gebruiker te laten volgen, zodat het kunstwerk een levendig gevoel krijgt. Dit heb ik ook met javascript gedaan.
+```javascript
+    var pupil = document.querySelector(".eye");
+// hier kijk ik hoever de muis van het oog verwijderd is op de x en y axis
+document.addEventListener("mousemove", (e) => {
+	let x = e.clientX * 30 / window.innerWidth - 11.4;
+	let y = e.clientY * 30 / window.innerHeight - 11.3;
+
+    // hier zorg ik er voor dat het pupil niet te ver buiten de vis gaat
+    if (y >= 10 && x >= 11.4) {
+        pupil.style.transform = 'translate(' + 11.4 + 'px ,' + 10 + 'px)';
+    } else if (y >= 10) {
+        pupil.style.transform = 'translate(' + x + 'px ,' + 10 + 'px)';
+    } else if (x >= 11.4) {
+        pupil.style.transform = 'translate(' + 11.4 + 'px ,' + y + 'px)';
+    } else {
+        pupil.style.transform = 'translate(' + x + 'px ,' + y + 'px)';
+    }
+})
+```
+
+# Het resultaat
+Het resultat is een best leuk interactieve versie van het originele kunstwerk. Ik vond het een leuke opdracht waarbij ik helaas niet gelijk de link legde tussen visual interfase design en dit vak. maar het is wel tot een mooi resultaat gekomen.
+
+
+
