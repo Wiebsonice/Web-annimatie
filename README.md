@@ -22,7 +22,7 @@ Eerst moest het kunstwerk digitaal gemaakt worden. Mijn keuze was om het te nama
 
 Door het gebruik te maken van media queries heb ik bepaalde elementen op telefoon verborgen en juist laten zien die op desktop verborgen zijn. Het is niet een heel groot verschil, omdat ik het kunstwerk redelijk close bij het originele wilde hebben op beide schermen.
 
-![Sheltered Weaklings](https://0dbcc3748b8f47fd775c-77a5fe26cae7cb35bb07eccfb28cee77.ssl.cf3.rackcdn.com/takashikono/_1600xAUTO_crop_center-center_75/Kono_03.jpg)
+![Sheltered Weaklings](https://github.com/Wiebsonice/Web-annimatie/blob/master/readme-assets/responsive.jpg?raw=true)
 
 ## Stap 2: CSS technieken
 Om het vak te halen moesten er een aantal css technieken gebruikt worden. Ik had ook een aantal css technieken gebruiken. Hier onder is dus een lijstje met voorbeelden te vinden over wat voor css technieken en selectoren ik heb gebruikt.
@@ -228,7 +228,9 @@ document.addEventListener("mousemove", (e) => {
 ```
 
 # Het resultaat
-Het resultat is een best leuk interactieve versie van het originele kunstwerk. Ik vond het een leuke opdracht waarbij ik helaas niet gelijk de link legde tussen visual interfase design en dit vak. maar het is wel tot een mooi resultaat gekomen.
+![Sheltered Weaklings](https://github.com/Wiebsonice/Web-annimatie/blob/master/readme-assets/result.jpg?raw=true)
+Het resultat is een best leuk interactieve versie van het originele kunstwerk. Ik vond het een leuke opdracht waarbij ik helaas niet gelijk de link legde tussen visual interfase design en dit vak. maar het is wel tot een mooi resultaat gekomen.  
+  
 [Bekijk het resultaat!](https://wiebsonice.github.io/Web-annimatie/)
 
 
