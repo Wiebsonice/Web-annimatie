@@ -229,6 +229,6 @@ document.addEventListener("mousemove", (e) => {
 
 # Het resultaat
 Het resultat is een best leuk interactieve versie van het originele kunstwerk. Ik vond het een leuke opdracht waarbij ik helaas niet gelijk de link legde tussen visual interfase design en dit vak. maar het is wel tot een mooi resultaat gekomen.
-
+[Bekijk het resultaat!](https://wiebsonice.github.io/Web-annimatie/)
 
 
