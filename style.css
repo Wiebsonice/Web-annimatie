@@ -4,27 +4,27 @@
 }
 
 .cls-1 {
-  fill: #034b97;
+    fill: #034b97;
 }
 
 .cls-2 {
-  fill: #981d3d;
+    fill: #981d3d;
 }
 
 .cls-3 {
-  fill: #e6e2e3;
+    fill: #e6e2e3;
 }
 
 .cls-4 {
-  fill: #6e7475;
+    fill: #6e7475;
 }
 
 .cls-5 {
-  fill: #fff;
+    fill: #fff;
 }
 
 .cls-6 {
-  fill: #af1d33
+    fill: #af1d33
 }
 
 body {
@@ -45,12 +45,12 @@ body {
     height: 30%;
     position: fixed;
     left: 0;
-    top:-26%;
+    top: -26%;
     transition: ease opacity .1s, ease top .5s;
 }
 
 .top .sky {
-    top:0px;
+    top: 0px;
 }
 
 .sea {
@@ -87,14 +87,21 @@ svg {
     z-index: 100;
     width: 20%;
     max-width: 200px;
-    background: red;
+    padding: 5px;
+    background: rgba(0, 0, 0, .5);
+    color: white;
     text-align: center;
+    opacity: 0;
+    transition: ease opacity .5s;
+}
+
+.food-btn.show {
+    opacity: 1;
 }
 
 .foodbox {
     position: absolute;
     z-index: 100;
-    border:2px solid green;
     width: 400px;
     height: 300%;
     right: 20%;
@@ -109,6 +116,24 @@ svg {
     display: inline-block;
     position: absolute;
     left: 50%;
+    top: -5%;
+    filter: invert(100%);
+}
+
+.hidden .food-circle {
+    animation-name: food-fall, food-shake;
+    animation-duration: 8s, 3s;
+    animation-timing-function: linear, ease-in;
+    animation-iteration-count: 1, 1;
+    animation-play-state: running, running;
+}
+
+#s-fishgroup {
+    transform: translate(0,0);
+}
+
+.slideIn {
+    animation: slideBackIn ease 3s;
 }
 
 #b-fish {
@@ -137,7 +162,7 @@ svg {
     position: fixed;
     height: 500px;
     width: 200px;
-    background: rgba(0,0,0,.5);
+    background: rgba(0, 0, 0, .5);
     right: -200px;
     top: 10px;
     transition: ease right .5s;
@@ -160,24 +185,57 @@ svg {
     font-size: 30px;
 }
 
+.mobile {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 50px;
+    z-index: 100;
+}
+
+.mobile div {
+    height: 50px;
+    width: 50px;
+    margin: 5px 0;
+    background-color: rgba(0, 0, 0, .5);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-origin: content-box;
+    box-sizing: border-box;
+    padding: 8px;
+}
+
+.sFishBtn {
+    background-image: url(assets/s-fish.png)
+}
+
+.mFishBtn {
+    background-image: url(assets/m-fish.png)
+}
+
+.bFishBtn {
+    background-image: url(assets/b-fish.png)
+}
 
 .hide {
     transform-origin: 50% 50%;
     transform-box: fill-box;
-    animation: fishaway  3s linear forwards;
+    animation: fishaway 3s linear forwards;
 }
 
 .container {
-  width: 100%;
+    width: 100%;
 }
 
-.eye{
-  margin: auto;
-  height: 100px;
-/*   background:#ccc; */
+.eye {
+    margin: auto;
+    height: 100px;
+    /*   background:#ccc; */
 }
-.pupill{
-  position:relative;
+
+.pupill {
+    position: relative;
 }
 
 #m-fish1 {
@@ -203,6 +261,11 @@ svg {
 .top .new-fish-outer {
     height: 100%;
     top: 22%;
+}
+
+.s-fish {
+    opacity: 1;
+    transition: ease opacity 1s;
 }
 
 .s-new-fish {
@@ -244,50 +307,255 @@ svg {
     animation: sfishswim 10s ease;
 }
 
-@-webkit-keyframes fishfloat{
-    0% { transform: translate(2px, 5px);}
-    20% { transform: translate(2px, 10px);}
-    40% { transform: translate(2px, 5px);}
-    60% { transform: translate(2px, 20px);}
-    80% { transform: translate(2px, 7px);}
-    100% { transform: translate(2px, 5px);}
+@-webkit-keyframes food-fall {
+    0% {
+        top: -10%
+    }
+
+    100% {
+        top: 100%
+    }
 }
 
+@-webkit-keyframes food-shake {
+    0% {
+        -webkit-transform: translateX(0px);
+        transform: translateX(0px)
+    }
 
-@-webkit-keyframes bfishfloat{
-    0% { transform: translate(-164px, -100px)}
-    20% { transform: translate(-164px, -120px)}
-    40% { transform: translate(-164px, -80px)}
-    60% { transform: translate(-164px, -70px)}
-    80% { transform: translate(-164px, -90px)}
-    100% { transform: translate(-164px, -100px)}
+    50% {
+        -webkit-transform: translateX(80px);
+        transform: translateX(80px)
+    }
+
+    100% {
+        -webkit-transform: translateX(0px);
+        transform: translateX(0px)
+    }
 }
 
-@-webkit-keyframes fishaway{
-	0% {transform:rotateY(60deg);}
-	25% {transform:rotateY(-60deg) translateX(-30px);}
-    50% {transform:rotateY(60deg) translateX(-60px);}
-	75% {transform:rotateY(-60deg) translateX(-100px);}
-    100% {opacity: 0; transform: translateX(-130px);}
+@keyframes food-fall {
+    0% {
+        top: -10%
+    }
+
+    100% {
+        top: 100%
+    }
 }
 
-@-webkit-keyframes sfishswim{
-	0% {transform:rotateY(60deg);right: -10%;}
-	25% {transform:rotateY(-60deg); right: 10%;}
-    50% {transform:rotateY(60deg); right: 40%;}
-	75% {opacity: 1;transform:rotateY(-60deg); right: 80%;}
-    100% {opacity: 0; transform: translateX(-130px);right: 110%;}
+@keyframes food-shake {
+    0% {
+        transform: translateX(0px)
+    }
+
+    50% {
+        transform: translateX(80px)
+    }
+
+    100% {
+        transform: translateX(0px)
+    }
 }
 
-@-webkit-keyframes mfishswimR{
-	0% {transform:rotateY(60deg);left: -10%;}
-	25% {transform:rotateY(-60deg); left: 10%;}
-    50% {transform:rotateY(60deg); left: 40%;}
-	75% {opacity: 1;transform:rotateY(-60deg); left: 80%;}
-    100% {opacity: 0; transform: translateX(-130px);left: 110%;}
+.food-circle:nth-of-type(0) {
+    left: 1%;
+    animation-delay: 0s, 0s
 }
 
+.food-circle:nth-of-type(1) {
+    left: 10%;
+    animation-delay: .5s, .5s
+}
 
+.food-circle:nth-of-type(2) {
+    left: 20%;
+    animation-delay: 3s, .25s
+}
+
+.food-circle:nth-of-type(3) {
+    left: 30%;
+    animation-delay: 2s, 1s
+}
+
+.food-circle:nth-of-type(4) {
+    left: 40%;
+    animation-delay: 1s, 1s
+}
+
+.food-circle:nth-of-type(5) {
+    left: 50%;
+    animation-delay: 4s, 1.5s
+}
+
+.food-circle:nth-of-type(6) {
+    left: 60%;
+    animation-delay: 3s, 1s
+}
+
+.food-circle:nth-of-type(7) {
+    left: 70%;
+    animation-delay: 1.25s, .5s
+}
+
+.food-circle:nth-of-type(8) {
+    left: 80%;
+    animation-delay: .5s, 0s
+}
+
+.food-circle:nth-of-type(9) {
+    left: 90%;
+    animation-delay: 1.5s, .75s
+}
+
+@-webkit-keyframes fishfloat {
+    0% {
+        transform: translate(2px, 5px);
+    }
+
+    20% {
+        transform: translate(2px, 10px);
+    }
+
+    40% {
+        transform: translate(2px, 5px);
+    }
+
+    60% {
+        transform: translate(2px, 20px);
+    }
+
+    80% {
+        transform: translate(2px, 7px);
+    }
+
+    100% {
+        transform: translate(2px, 5px);
+    }
+}
+
+@-webkit-keyframes bfishfloat {
+    0% {
+        transform: translate(-164px, -100px)
+    }
+
+    20% {
+        transform: translate(-164px, -120px)
+    }
+
+    40% {
+        transform: translate(-164px, -80px)
+    }
+
+    60% {
+        transform: translate(-164px, -70px)
+    }
+
+    80% {
+        transform: translate(-164px, -90px)
+    }
+
+    100% {
+        transform: translate(-164px, -100px)
+    }
+}
+
+@-webkit-keyframes fishaway {
+    0% {
+        transform: rotateY(60deg);
+    }
+
+    25% {
+        transform: rotateY(-60deg) translateX(-30px);
+    }
+
+    50% {
+        transform: rotateY(60deg) translateX(-60px);
+    }
+
+    75% {
+        transform: rotateY(-60deg) translateX(-100px);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateX(-130px);
+    }
+}
+
+@-webkit-keyframes sfishswim {
+    0% {
+        transform: rotateY(60deg);
+        right: -10%;
+    }
+
+    25% {
+        transform: rotateY(-60deg);
+        right: 10%;
+    }
+
+    50% {
+        transform: rotateY(60deg);
+        right: 40%;
+    }
+
+    75% {
+        opacity: 1;
+        transform: rotateY(-60deg);
+        right: 80%;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateX(-130px);
+        right: 110%;
+    }
+}
+
+@-webkit-keyframes mfishswimR {
+    0% {
+        transform: rotateY(60deg);
+        left: -10%;
+    }
+
+    25% {
+        transform: rotateY(-60deg);
+        left: 10%;
+    }
+
+    50% {
+        transform: rotateY(60deg);
+        left: 40%;
+    }
+
+    75% {
+        opacity: 1;
+        transform: rotateY(-60deg);
+        left: 80%;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateX(-130px);
+        left: 110%;
+    }
+}
+
+@-webkit-keyframes slideBackIn {
+    0% {
+        transform: translate(100px, 0);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1
+        transform: translate(50px, 0);
+    }
+
+    100% {
+        transform: translate(0, 0);
+        opacity: 1
+    }
+}
 
 @media only screen and (max-width: 600px) {
     .title {
@@ -302,5 +570,9 @@ svg {
         width: 150px;
         right: 20px;
         height: 400%;
+    }
+
+    .mobile {
+        display: block;
     }
 }

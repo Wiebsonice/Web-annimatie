@@ -1,23 +1,46 @@
-console.log("hey")
-var sFish = document.querySelectorAll('.s-fish');
-var body = document.querySelector(body)
+
+var body = document.querySelector('body')
+var allSFish = document.querySelectorAll('.s-fish');
+var sFishGroupOuter = document.querySelector('#s-fishgroup');
+
+var foodBtn = document.querySelector('.food-btn');
+var foodOuter = document.querySelector('.foodbox');
 
 var seaBg = document.querySelector('.sea');
+var fishHidden = false;
 
-sFish.forEach(item => {
+allSFish.forEach(item => {
   item.addEventListener('click', event => {
     // console.log(item)
     // item.classList.toggle("visible");
 
-    sFish.forEach(fish => {
+    allSFish.forEach(fish => {
+      foodOuter.classList.remove("hidden");
       fish.classList.toggle("hide");
+      fishHidden = true;
+      foodBtn.classList.add("show");
+      sFishGroupOuter.classList.remove("slideIn")
     })
   })
 })
 
+foodBtn.addEventListener("click", function() {
+    if (fishHidden == true) {
+        foodOuter.classList.add("hidden");
+        foodBtn.classList.remove("show");
+        fishHidden = false;
+        setTimeout(function(){
+            sFishGroupOuter.classList.add("slideIn")
+        }, 2000);
+        allSFish.forEach(fish => {
+            setTimeout(function(){
+                fish.classList.toggle("hide");
+             }, 3000);
+        })
+    }
+});
 
-var [red, green, blue] = [69, 111, 225]
-var body = document.querySelector('body')
+
 
 window.addEventListener('scroll', () => {
   seaBg.style.opacity = getScrollPercent();
@@ -62,19 +85,32 @@ var fishAmmount = 1;
 window.addEventListener("keydown", keyFunction);
 function keyFunction() {
     if (event.keyCode == 83) {
-        console.log("s")
         sFishSwim("s")
     }
 
     else if (event.keyCode == 77) {
-        console.log("m")
         sFishSwim("m")
     }
     else if (event.keyCode == 66) {
-        console.log("b")
         sFishSwim("b")
     }
 }
+
+// mobile fix for keydown
+var sFish = document.querySelector('.sFishBtn');
+var mFish = document.querySelector('.mFishBtn');
+var bFish = document.querySelector('.bFishBtn');
+
+sFish.addEventListener("click", function() {
+    sFishSwim("s")
+});
+mFish.addEventListener("click", function() {
+    sFishSwim("m")
+});
+bFish.addEventListener("click", function() {
+    sFishSwim("b")
+});
+
 
 function sFishSwim(type) {
     var randomnmbr = Math.random() * 100;
